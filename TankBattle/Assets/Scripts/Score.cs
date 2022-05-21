@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
-    //[SerializeField] private Transform player;
     [SerializeField] private Text scoreText;
 
     public static int score;
@@ -19,7 +18,8 @@ public class Score : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    public void AddScore(int newScoreValue)
+
+    public static void AddScore(int newScoreValue)
     {
         score += newScoreValue;
     }

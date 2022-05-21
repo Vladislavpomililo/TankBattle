@@ -10,19 +10,12 @@ public class MoveBolt : MonoBehaviour
     [SerializeField] private GameObject boomBoltPrefab;
     [SerializeField] private GameObject boomPrefab;
 
-    public int scoreValue;
-    private Score score;
+    [SerializeField] private int scoreValue = 10;
 
     public void Start()
     {
-        GameObject gameObjectcontroller = GameObject.FindWithTag("Score");
-        if(gameObjectcontroller != null)
-        {
-            score = gameObjectcontroller.GetComponent<Score>();
-        }
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * -speed;
-
     }
 
     private void FixedUpdate()
@@ -44,7 +37,7 @@ public class MoveBolt : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
 
-            score.AddScore(scoreValue);
+            Score.AddScore(scoreValue);
 
         }
         if (other.tag == "BoltBot")
